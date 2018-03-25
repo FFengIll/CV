@@ -2,6 +2,8 @@
 <link rel="stylesheet" type="text/css" href="public/css/screen.css" />
 <link rel="stylesheet" type="text/css" href="public/css/mobile.css" />
 <div id="page">
+{{! special process if special table or something need }}
+{{! in this, course need special process }}
 {{#bio_data}}
 	<div id="top-contact">
 		<div class="contact-details">
@@ -28,7 +30,7 @@
 	<br/><br/>
 
 	{{#summary}}
-	<h2><div class="icon-user icon-square"></div> ##summary##</h2>
+	<h2><div class="icon-user icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#points}}
 		<li>{{{.}}}</li>
@@ -37,7 +39,7 @@
 	{{/summary}}
 
 	{{#github_projects}}
-	<h2><div class="icon-github icon-square"></div> ##github_projects##</h2>
+	<h2><div class="icon-github icon-square"></div> {{title}}</h2>
 	<ul>
 	{{#details}}
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
@@ -53,12 +55,12 @@
 	{{/github_projects}}
 
 	{{#skills}}
-	<h2><div class="icon-th-list icon-square"></div> ##skills##</h2>
+	<h2><div class="icon-th-list icon-square"></div> {{title}}</h2>
 	<ul class="languages">
 		{{#details}}
 		<li>{{type}}: 
 			{{#items}}
-			<span class="label label-default">{{name}}</span>
+			<span class="label label-default">{{.}}</span>
 			{{/items}}
 		</li>
 		{{/details}}
@@ -66,7 +68,7 @@
 	{{/skills}}
 
 	{{#education}}
-	<h2><div class="icon-mortar-board icon-rect"></div> ##education##</h2>
+	<h2><div class="icon-mortar-board icon-rect"></div> {{title}}</h2>
 	<div id="mobile-table">
 		<div class="table-responsive">
 			<table class="table education">
@@ -96,7 +98,7 @@
 	{{/education}}
 
 	{{#acad_achievements}}
-	<h2><div class="icon-bookmark icon-rect"></div> ##acad_achievements##</h2>
+	<h2><div class="icon-bookmark icon-rect"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
@@ -105,19 +107,19 @@
 	{{/acad_achievements}}
 
 	{{#experience}}
-	<h2><div class="icon-briefcase icon-square"></div> ##experience##</h2>
+	<h2><div class="icon-briefcase icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{title}}, {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
-			<span class="right">({{from}} – {{to}})</span>
+			<span class="right">({{from}} -- {{to}})</span>
 			<ul>
 				{{#details}}
 				<li>{{{.}}}</li>
 				{{/details}}
 				{{#technology_used}}
-				<li>##technology_used##: 
+ 				<li>##technology_used##: 
 					{{#tools}}
-					<span class="label label-default">{{name}}</span>
+					<span class="label label-default">{{.}}</span>
 					{{/tools}}
 				</li>
 				{{/technology_used}}
@@ -128,7 +130,7 @@
 	{{/experience}}
 
 	{{#other_projects}}
-	<h2><div class="icon-gear icon-square"></div> ##other_projects##</h2>
+	<h2><div class="icon-gear icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>
@@ -138,9 +140,9 @@
 				<li>{{{.}}}</li>
 				{{/points}}
 				{{#technology_used}}
-				<li>##technology_used##: 
+ 				<li>##technology_used##: 
 					{{#tools}}
-					<span class="label label-default">{{name}}</span>
+					<span class="label label-default">{{.}}</span>
 					{{/tools}}
 				</li>
 				{{/technology_used}}			
@@ -151,8 +153,11 @@
 	{{/other_projects}}
 
 	{{#grad_courses}}
-	<h2><div class="icon-institution icon-square"></div> ##grad_courses##</h2>
+	<h2><div class="icon-institution icon-square"></div> {{title}}</h2>
 	<table class="table education">
+		{{#course}}
+		<td><a href="{{url}}">{{name}}</a></td>
+		{{/course}}
 		{{#rows}}
 		<tr>
 			{{#columns}}
@@ -164,8 +169,11 @@
 	{{/grad_courses}}
 
 	{{#undergrad_courses}}
-	<h2><div class="icon-bookmark icon-square"></div> ##undergrad_courses##</h2>
+	<h2><div class="icon-bookmark icon-square"></div> {{title}}</h2>
 	<table class="table education">
+		{{#course}}
+		<td><a href="{{url}}">{{name}}</a></td>
+		{{/course}}
 		{{#rows}}
 		<tr>
 			{{#columns}}
@@ -177,12 +185,12 @@
 	{{/undergrad_courses}}
 
 	{{#research_experience}}
-	<h2><div class="icon-edit icon-square"></div> ##research_experience##</h2>
+	<h2><div class="icon-edit icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>
 			{{title}}, {{{organisation}}}
-			<span class="right">({{from}} – {{to}})</span>
+			<span class="right">({{from}} -- {{to}})</span>
 			<ul>
 				{{#points}}
 				<li>{{{.}}}</li>
@@ -194,7 +202,7 @@
 	{{/research_experience}}
 
 	{{#patents}}
-	<h2><div class="icon-file icon-square"></div> ##patents##</h2>
+	<h2><div class="icon-file icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{patent_id}} 
@@ -206,7 +214,7 @@
 	{{/patents}}
 
 	{{#papers}}
-	<h2><div class="icon-edit icon-square"></div> ##papers##</h2>
+	<h2><div class="icon-edit icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{authors}} 
@@ -218,7 +226,7 @@
 	{{/papers}}
 
 	{{#memberships}}
-	<h2><div class="icon-globe icon-square"></div> ##memberships##</h2>
+	<h2><div class="icon-globe icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#committees}}
 		<li>{{{.}}}</li>
@@ -227,7 +235,7 @@
 	{{/memberships}}
 	
 	{{#extra_curricular}}
-	<h2><div class="icon-music icon-square"></div> ##extra_curricular##</h2>
+	<h2><div class="icon-music icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
