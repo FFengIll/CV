@@ -2,6 +2,11 @@
 <link rel="stylesheet" type="text/css" href="public/css/screen.css" />
 <link rel="stylesheet" type="text/css" href="public/css/mobile.css" />
 <div id="page">
+<fontbase family="Microsoft YaHei">
+<style type="text/css">
+body,select,textarea {font-size:1.1em}
+body, html,input{font-family:"微软雅黑";}
+</style>
 {{! special process if special table or something need }}
 {{! in this, course need special process }}
 {{#bio_data}}
@@ -30,15 +35,18 @@
 	<br/><br/>
 
 	{{#summary}}
+	{{#use}}
 	<h2><div class="icon-user icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#points}}
 		<li>{{{.}}}</li>
 		{{/points}}
 	</ul>
+	{{/use}}
 	{{/summary}}
 
 	{{#github_projects}}
+	{{#use}}
 	<h2><div class="icon-github icon-square"></div> {{title}}</h2>
 	<ul>
 	{{#details}}
@@ -52,9 +60,12 @@
 		</li>
 	{{/details}}
 	</ul>
+	{{/use}}
 	{{/github_projects}}
+	
 
 	{{#skills}}
+	{{#use}}
 	<h2><div class="icon-th-list icon-square"></div> {{title}}</h2>
 	<ul class="languages">
 		{{#details}}
@@ -65,9 +76,12 @@
 		</li>
 		{{/details}}
 	</ul>
+	{{/use}}
 	{{/skills}}
+	
 
 	{{#education}}
+	{{#use}}
 	<h2><div class="icon-mortar-board icon-rect"></div> {{title}}</h2>
 	<div id="mobile-table">
 		<div class="table-responsive">
@@ -95,64 +109,74 @@
 			{{/schools}}
 		</table>
 	</div>
+	{{/use}}
 	{{/education}}
+	
 
 	{{#acad_achievements}}
+	{{#use}}
 	<h2><div class="icon-bookmark icon-rect"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/acad_achievements}}
+	
 
 	{{#experience}}
+	{{#use}}
 	<h2><div class="icon-briefcase icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{title}}, {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
-			<span class="right">({{from}} -- {{to}})</span>
+			<span class="right">({{from}} - {{to}})</span>
 			<ul>
 				{{#details}}
 				<li>{{{.}}}</li>
 				{{/details}}
-				{{#technology_used}}
- 				<li>##technology_used##: 
+ 				<li> 
 					{{#tools}}
 					<span class="label label-default">{{.}}</span>
 					{{/tools}}
 				</li>
-				{{/technology_used}}
 			</ul>
 		</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/experience}}
+	
 
 	{{#other_projects}}
+	{{#use}}
 	<h2><div class="icon-gear icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>
-			{{{headline}}}
+			{{{headline}}} <span class="right">{{from}} - {{to}}</span>
 			<ul>
 				{{#points}}
 				<li>{{{.}}}</li>
 				{{/points}}
-				{{#technology_used}}
- 				<li>##technology_used##: 
+				
+ 				<li> 
 					{{#tools}}
 					<span class="label label-default">{{.}}</span>
 					{{/tools}}
 				</li>
-				{{/technology_used}}			
+			
 			</ul>
 		</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/other_projects}}
+	
 
 	{{#grad_courses}}
+	{{#use}}
 	<h2><div class="icon-institution icon-square"></div> {{title}}</h2>
 	<table class="table education">
 		{{#course}}
@@ -166,9 +190,12 @@
 		</tr>
 		{{/rows}}
 	</table>
+	{{/use}}
 	{{/grad_courses}}
+	
 
 	{{#undergrad_courses}}
+	{{#use}}
 	<h2><div class="icon-bookmark icon-square"></div> {{title}}</h2>
 	<table class="table education">
 		{{#course}}
@@ -182,15 +209,18 @@
 		</tr>
 		{{/rows}}
 	</table>
+	{{/use}}
 	{{/undergrad_courses}}
+	
 
 	{{#research_experience}}
+	{{#use}}
 	<h2><div class="icon-edit icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>
 			{{title}}, {{{organisation}}}
-			<span class="right">({{from}} -- {{to}})</span>
+			<span class="right">({{from}} - {{to}})</span>
 			<ul>
 				{{#points}}
 				<li>{{{.}}}</li>
@@ -199,9 +229,12 @@
 		</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/research_experience}}
+	
 
 	{{#patents}}
+	{{#use}}
 	<h2><div class="icon-file icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
@@ -211,9 +244,12 @@
 		</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/patents}}
+	
 
 	{{#papers}}
+	{{#use}}
 	<h2><div class="icon-edit icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
@@ -223,25 +259,32 @@
 		</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/papers}}
 
 	{{#memberships}}
+	{{#use}}
 	<h2><div class="icon-globe icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#committees}}
 		<li>{{{.}}}</li>
 		{{/committees}}
 	</ul>	
+	{{/use}}
 	{{/memberships}}
 	
+	
 	{{#extra_curricular}}
+	{{#use}}
 	<h2><div class="icon-music icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
 		{{/items}}
 	</ul>
+	{{/use}}
 	{{/extra_curricular}}
+	
 
 	<br />
 	<div id="bottom-contact" text-size="80%">
@@ -264,4 +307,4 @@
 	<script src="public/js/grunticon.js"></script>
 	{{/icons}}
 {{/settings}}
-</div><!-- End Page -->
+</div><!- End Page ->

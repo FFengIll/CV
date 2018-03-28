@@ -17,14 +17,12 @@
             "Cartooning"
         ],
         "summary": {
-            "title": "个人描述",
             "points": [
                 "Competent at managing responsibilities in a high-volume atmosphere",
                 "Hard worker, quick learner, and ability to assume responsibility"
             ]
         },
         "github_projects": {
-            "title": "项目经历",
             "details": [
                 {
                     "project_name": "prat0318/2048-tetris",
@@ -53,7 +51,6 @@
             ]
         },
         "skills": {
-            "title": "技能",
             "details": [
                 {
                     "type": "Programming Languages",
@@ -87,7 +84,6 @@
             ]
         },
         "education": {
-            "title": "教育背景",
             "show_gpa": true,
             "schools": [
                 {
@@ -107,14 +103,12 @@
             ]
         },
         "acad_achievements": {
-            "title": "个人成就",
             "items": [
                 "Was among the top 5% in the institute merit list of the undergraduate batch at IIT Kharagpur.",
                 "Secured 383rd Rank in IIT-JEE 2005, an exam conducted by Indian Institute of Technology(s)."
             ]
         },
         "experience": {
-            "title": "工作经历",
             "items": [
                 {
                     "title": "Graduate Research Assistant",
@@ -125,14 +119,12 @@
                     "details": [
                         "Developed a common web interface <<http://unitydatabase.com>> to search through different datasets and output aggregate results and ensuring easy pluggability of new datasets."
                     ],
-                    "technology_used": {
-                        "tools": [
-                            "Python",
-                            "Django",
-                            "South",
-                            "PostgreSQL"
-                        ]
-                    }
+                    "tools": [
+                        "Python",
+                        "Django",
+                        "South",
+                        "PostgreSQL"
+                    ]
                 },
                 {
                     "title": "SDE II (Software Development Engineer II)",
@@ -154,15 +146,13 @@
                         "Was part of a team which developed the warehouse module in RoR framework from scratch. It now scales to around 10X as compared to the ERP system existed.",
                         "Designed warehouse stock snapshots and stock ledger framework using Pig scripts to make the supply chain system legally compliant."
                     ],
-                    "technology_used": {
-                        "tools": [
-                            "Ruby",
-                            "Java",
-                            "Pig",
-                            "Active Records",
-                            "MySQL"
-                        ]
-                    }
+                    "tools": [
+                        "Ruby",
+                        "Java",
+                        "Pig",
+                        "Active Records",
+                        "MySQL"
+                    ]
                 },
                 {
                     "title": "Software Engineer",
@@ -174,18 +164,15 @@
                         "Handled high priority issues for JDBC client driver for IBM Informix database.",
                         "Was awarded Smart CADian award for resolving an obscure deadlock situation, making Informix JDBC driver more robust."
                     ],
-                    "technology_used": {
-                        "tools": [
-                            "Java",
-                            "IBM Informix",
-                            "IBM DB2"
-                        ]
-                    }
+                    "tools": [
+                        "Java",
+                        "IBM Informix",
+                        "IBM DB2"
+                    ]
                 }
             ]
         },
         "other_projects": {
-            "title": "其他项目",
             "items": [
                 {
                     "headline": "Designed product _Omerta_, a multi-user chat room application in j2me using Sun Wireless Toolkit platform.",
@@ -197,7 +184,6 @@
             ]
         },
         "grad_courses": {
-            "title": "研究生课程",
             "course": [
                 {
                     "name": "Distributed Computing",
@@ -214,7 +200,6 @@
             ]
         },
         "undergrad_courses": {
-            "title": "本科课程",
             "course": [
                 {
                     "name": "Network Systems",
@@ -227,7 +212,6 @@
             ]
         },
         "research_experience": {
-            "title": "研究经历",
             "items": [
                 {
                     "title": "Undergraduate project",
@@ -260,14 +244,12 @@
             ]
         },
         "extra_curricular": {
-            "title": "其他成就",
             "items": [
                 "Was awarded 2<sup>nd</sup> position in Bionetics, Coding Event, Genesis 09 at IIT Kharagpur.",
                 "Microsoft Student Partner of IIT Kharagpur from the period July 08 – June 09."
             ]
         },
         "papers": {
-            "title": "论文",
             "items": [
                 {
                     "authors": "Michl Dugls, Mrclo Dsconi",
@@ -277,7 +259,6 @@
             ]
         },
         "patents": {
-            "title": "专利",
             "items": [
                 {
                     "patent_id": "US Patent X,XXX,634",
@@ -288,7 +269,6 @@
             ]
         },
         "memberships": {
-            "title": "其他职务",
             "committees": [
                 "Member of the ACM awesomest humans secret group, 2008-present"
             ]

@@ -1,0 +1,60 @@
+{
+    "bio_data": {
+        "summary": {
+            "title": "个人描述",
+            "use": true
+        },
+        "github_projects": {
+            "title": "Github项目",
+            "use": true
+        },
+        "skills": {
+            "title": "个人技能",
+            "use": true
+        },
+        "education": {
+            "title": "教育背景",
+            "use": true
+        },
+        "acad_achievements": {
+            "title": "个人成就",
+            "use": true
+        },
+        "experience": {
+            "title": "工作经历",
+            "use": true
+        },
+        "other_projects": {
+            "title": "项目经历",
+            "use": true
+        },
+        "grad_courses": {
+            "title": "研究生课程",
+            "use": false
+        },
+        "undergrad_courses": {
+            "title": "本科课程",
+            "use": false
+        },
+        "research_experience": {
+            "title": "研究经历",
+            "use": true
+        },
+        "extra_curricular": {
+            "title": "其他成就",
+            "use": true
+        },
+        "papers": {
+            "title": "论文",
+            "use": true
+        },
+        "patents": {
+            "title": "专利",
+            "use": true
+        },
+        "memberships": {
+            "title": "其他职务",
+            "use": true
+        }
+    }
+}
