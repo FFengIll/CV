@@ -267,7 +267,7 @@ body, html,input{font-family:"微软雅黑";}
 	<h2><div class="icon-globe icon-square"></div> {{title}}</h2>
 	<ul>
 		{{#committees}}
-		<li>{{{.}}}</li>
+		<li>{{title}} <span class="right">({{from}} - {{to}})</span></li>
 		{{/committees}}
 	</ul>	
 	{{/use}}

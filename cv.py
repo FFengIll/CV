@@ -25,7 +25,7 @@ def parse():
     try:
         args.filepath = sys.argv[1]
     except:
-        args.filepath = "cv.yaml"
+        args.filepath = "cv.json"
     try:
         args.formatpaht = sys.argv[2]
     except:
@@ -53,7 +53,6 @@ def main():
             data = json.load(fd)
         elif filepath.rfind(".yaml")>=0:
             data = yaml.safe_load(fd)
-    # print(data)
 
     with open(args.formatpath) as fd:
         format = json.load(fd)
