@@ -11,7 +11,7 @@ A CV template using:
 
 For quick output, easy change, independent format.
 
-See the `cv.html` as a [Demo](cv.html).
+See the `cv.html` as a [Demo]( https://ffengill.github.io/CV/cv.html).
 
 简历自动生成模版:
 * 使用json存储和修改数据
@@ -20,7 +20,7 @@ See the `cv.html` as a [Demo](cv.html).
 
 模版清爽，易于修改，简单快速使用。
 
-多说无用，请看[Demo](cv.html).
+多说无用，请看[Demo]( https://ffengill.github.io/CV/cv.html).
 
 # Misc
 Thanks to [prat0318](https://github.com/prat0318/json_resume) for the base work.
