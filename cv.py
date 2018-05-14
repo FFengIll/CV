@@ -4,6 +4,7 @@ import argparse
 import sys
 import yaml
 
+
 def render(template, data):
     render = pystache.Renderer()
     parsed = pystache.parse(template)
@@ -29,16 +30,15 @@ def parse():
     try:
         args.formatpaht = sys.argv[2]
     except:
-        args.formatpath = "format.json"
+        args.formatpath = "setting.json"
     args.temppath = "templates/default_html.mustache"
-    print args
     return args
 
 
 def combine_json(dest, src):
     for key, item in src.iteritems():
-        if isinstance(item, dict):
-            if key in dest:
+        if key in dest:
+            if isinstance(item, dict):
                 combine_json(item, dest[key])
         else:
             dest[key] = item
@@ -49,9 +49,9 @@ def main():
     args = parse()
     filepath = args.filepath
     with open(filepath) as fd:
-        if filepath.rfind(".json")>=0:
+        if filepath.rfind(".json") >= 0:
             data = json.load(fd)
-        elif filepath.rfind(".yaml")>=0:
+        elif filepath.rfind(".yaml") >= 0:
             data = yaml.safe_load(fd)
 
     with open(args.formatpath) as fd:
@@ -63,6 +63,9 @@ def main():
         template = fd.readlines()
         template = ''.join(template)
         template = template.decode("unicode_escape")
+
+    s = json.dumps(data, indent=4, sort_keys=True)
+    print("setting: \n{}".format(data['settings']))
 
     render(template, data)
 
