@@ -1,4 +1,13 @@
 {
+    "settings": {
+        "icons": true,
+        "font": "Microsoft YaHei",
+        "style": [
+            "body,select,textarea {font-size:1.1em}",
+            "body, html,input{font-family:微软雅黑;}",
+            ".contact-details{width:20em;}"
+       ]
+    },
     "bio_data": {
         "summary": {
             "title": "个人描述",

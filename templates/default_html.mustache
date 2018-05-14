@@ -2,11 +2,18 @@
 <link rel="stylesheet" type="text/css" href="public/css/screen.css" />
 <link rel="stylesheet" type="text/css" href="public/css/mobile.css" />
 <div id="page">
-<fontbase family="Microsoft YaHei">
-<style type="text/css">
-body,select,textarea {font-size:1.1em}
-body, html,input{font-family:"微软雅黑";}
-</style>
+
+{{#settings}}
+	{{#font}}
+		<fontbase family="{{font}}">
+	{{/font}}
+
+	{{! add any style you want in the setting style as list}}
+	{{#style}}
+		<style type="text/css">{{.}}</style>
+	{{/style}}
+{{/settings}}
+
 {{! special process if special table or something need }}
 {{! in this, course need special process }}
 {{#bio_data}}
