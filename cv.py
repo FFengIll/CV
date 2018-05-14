@@ -28,7 +28,7 @@ def parse():
     except:
         args.filepath = "cv.json"
     try:
-        args.formatpaht = sys.argv[2]
+        args.formatpath = sys.argv[2]
     except:
         args.formatpath = "setting.json"
     args.temppath = "templates/default_html.mustache"
