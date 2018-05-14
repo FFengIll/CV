@@ -2,7 +2,10 @@ import pystache
 import json
 import argparse
 import sys
-import yaml
+try:
+    import yaml
+except:
+    pass
 
 
 def render(template, data):
