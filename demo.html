@@ -1,0 +1,101 @@
+<script type="text/javascript" src="public/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="public/js/mustache.min.js"></script>
+
+<!DOCTYPE HTML>
+<html>
+
+<body onload="loadCV()">
+    <div id="target">Loading...</div>
+    <script id="template" type="x-tmpl-mustache">
+Hello {{ name }}!
+</script>
+</body>
+
+</html>
+
+<script>
+    function merge(dest, src) {
+        for (var key in src) {
+            item = src[key]
+            if (key in dest) {
+                if ($.type(item) == 'object') {
+                    merge(item, dest[key])
+                }
+            } else {
+                dest[key] = item;
+            }
+        }
+        return dest;
+    }
+
+    function render(template, data) {
+        var rendered = Mustache.render(template, data);
+        $('#target').html(rendered);
+    }
+
+    function loadUser() {
+        var template = $('#template').html();
+        Mustache.parse(template);   // optional, speeds up future uses
+        render(template, { name: "Luke" });
+    }
+
+    function loadUser2() {
+        // res = $.getJSON('data.json', function (data) {
+        //     console.log(data);
+        //     $.get('template.mst', function (template) {
+        //         console.log(template)
+        //         render(template, data);
+        //     });
+        // });
+        datajson = 'data.json'
+        template = 'template.mst'
+        res = $.ajax({
+            url: datajson,
+            async: false,
+            dataType: 'json'
+        });
+        data = res.responseJSON;
+
+        $.get(template, function (template) {
+            console.log(template)
+            render(template, data);
+        });
+    }
+
+    function loadCV() {
+        datajson = 'cv.json'
+        template = 'templates/default_html.mustache'
+        settingjson = 'setting.json'
+
+        //must go with syn
+        try {
+            res = $.ajax({
+                url: datajson,
+                async: false,
+                dataType: 'json'
+            });
+            data = res.responseJSON;
+        } catch (err) {
+            alert('cv data json file error');
+            return;
+        }
+
+        try {
+            res = $.ajax({
+                url: settingjson,
+                async: false,
+                dataType: 'json'
+            });
+            setting = res.responseJSON;
+        } catch (err) {
+            alert('setting json file error');
+            return;
+        }
+        data = merge(data, setting);
+
+        $.get(template, function (template) {
+            console.log(template)
+            render(template, data);
+        });
+    }
+</script>
