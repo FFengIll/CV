@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 
-<body onload="loadCV()">
+<body onload="loadCV2()">
     <div id="target">Loading...</div>
     <script id="template" type="x-tmpl-mustache">
 Hello {{ name }}!
@@ -98,4 +98,42 @@ Hello {{ name }}!
             render(template, data);
         });
     }
+
+    function loadCV2() {
+        datajson = 'cv.json'
+        template = 'template_html.html'
+        settingjson = 'setting.json'
+
+        //must go with syn
+        try {
+            res = $.ajax({
+                url: datajson,
+                async: false,
+                dataType: 'json'
+            });
+            data = res.responseJSON;
+        } catch (err) {
+            alert('cv data json file error');
+            return;
+        }
+
+        try {
+            res = $.ajax({
+                url: settingjson,
+                async: false,
+                dataType: 'json'
+            });
+            setting = res.responseJSON;
+        } catch (err) {
+            alert('setting json file error');
+            return;
+        }
+        data = merge(data, setting);
+
+        $.get(template, function (template) {
+            console.log(template)
+            render(template, data);
+        });
+    }
+
 </script>
