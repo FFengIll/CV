@@ -1,0 +1,470 @@
+<html>
+
+<head>
+    <!--general 3rd-part css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+
+    <!-- user define css -->
+    <link rel="stylesheet" type="text/css" href="css/json-resume/screen.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/json-resume/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="css/awesome-resume/base.css">
+    <link rel="stylesheet" type="text/css" href="css/online-cv/main.css">
+
+    <!-- js -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- add any style you want in the setting style as list -->
+    <!-- setting -->
+    {{#settings}} {{#font}}
+    <!-- <fontbase family="{{font}}"></fontbase> -->
+    {{/font}} {{#style}}
+    <!-- <style type="text/css">{{{.}}}</style> -->
+    {{/style}} {{/settings}}
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Use icons from fontawesome when you are adding new item in the contact list  -->
+        <div class="sidebar-wrapper">
+            {{#bio_data}}
+            <!-- detail: image -->
+            {{#image}}
+            <div class="profile-container">
+                <img class="profile-img" src="{{image}}" alt="profile picture" />
+            </div>
+            <!--//profile-container-->
+            {{/image}} {{^image}}
+            <div class="profile-container">
+                <img class="profile-img" src="image/avatar.jpg" alt="profile picture" />
+            </div>
+            <!--//profile-container-->
+            {{/image}}
+
+            <!-- detail: contact -->
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+
+                </ul>
+                <!-- detail: email -->
+                {{#email}}
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-envelope"></i>&nbsp;{{email}}
+                    </span>
+                    <br>
+                </div>{{/email}}
+                <!-- detail: phone -->
+                {{#phone}}
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-phone"></i>&nbsp;{{phone}}
+                    </span>
+                    <br>
+                </div> {{/phone}}
+                <!-- detail:website  -->
+                {{#website}}
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-globe"></i>&nbsp;{{website}}
+                    </span>
+                    <br>
+                </div>{{/website}}
+                <!-- detail: city -->
+                {{#city}}
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-map"></i>&nbsp;{{city}}
+                    </span>
+                    <br>
+                </div>{{/city}}
+            </div>
+            <!--//contact-container-->
+
+            <!-- detail: brief -->
+            <div class="contact-container container-block">
+                {{#summary}} {{#use}}
+                <h2>
+                    <div class="banner-div">
+                        <span class="banner-span">
+                            <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                        </span>
+                    </div>
+                </h2>
+                <ul class="list-unstyled contact-list">
+                    {{#points}}
+                    <li>{{{.}}}</li>{{/points}}
+                </ul>
+                {{/use}} {{/summary}}
+
+                <!-- detail: skills -->
+                {{#skills}} {{#use}}
+                <h2>
+                    <div class="banner-div">
+                        <span class="banner-span">
+                            <i class="white-icon fas fa-th-list"></i>&nbsp;{{title}}
+                        </span>
+                    </div>
+                </h2>
+
+                <ul class="list-unstyled contact-list">
+                    {{#details}}
+                    <li>
+                        <span class="banner-span">{{type}}:</span>
+                        <br> {{#items}}
+                        <span class="label label-default">{{.}}</span>
+                        {{/items}}
+                    </li>
+                    {{/details}}
+                </ul>
+                {{/use}} {{/skills}} {{/bio_data}}
+            </div>
+            <!--//contact-container-->
+
+        </div>
+        <!--//sidebar-wrapper-->
+
+        <div class="main-wrapper">
+            {{#bio_data}} {{! special process if special table or something need }} {{! in this, course need special process }}
+            <!-- detail: misc info on top -->
+            <div id="top-contact">
+                <div class="contact-details">
+                    {{#email}}
+                    <div class="fas fa-envelope icon-square"></div> {{email}}
+                    <br> {{/email}} {{#phone}}
+                    <div class="fas fa-phone icon-square"></div> {{phone}}
+                    <br> {{/phone}} {{#website}}
+                    <div class="fas fa-globe icon-square"></div>
+                    <a> {{website}}</a>
+                    {{/website}}
+                </div>
+            </div>
+
+            <h1 class="emphnext">{{firstname}} {{familyname}}</h1>
+            {{#stars}}
+            <span class="stars" style="clear:left">
+                {{#items}} {{name}} {{^last}}
+                <div class="fas fa-star-o icon-star"></div>{{/last}} {{/items}}
+            </span>
+            {{/stars}}
+            <br>
+            <br>
+
+            <!-- detail: github projects -->
+            {{#github_projects}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fab fa-github"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#details}}
+                <li>
+                    <a href="{{{{tagline}}}">{{project_name}}</a>
+                    <ul>
+                        {{#description}}
+                        <li>{{{.}}}</li>{{/description}}
+                    </ul>
+                </li>
+                {{/details}}
+            </ul>
+            {{/use}} {{/github_projects}}
+
+            <!-- detail: education -->
+            {{#education}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-graduation-cap"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <div id="mobile-table">
+                <!-- <div class="table-responsive"> -->
+                <div>
+                    <table class="table education">
+                        <!-- <tr>
+                            <th>##degree##</th>
+                            <th>##major##</th>
+                            <th>##institution##</th>
+                            <th nowrap>##graduation_year##</th>{{#show_gpa}}
+                            <th>##gpa##</th>{{/show_gpa}}
+                        </tr> -->
+                        {{#schools}}
+                        <tr>
+                            <td>{{degree}}</td>
+                            <td>{{major}}</td>
+                            <td>{{institution}}</td>
+                            <td align="center">{{graduation_year}}</td>
+                            {{#show_gpa}}
+                            <td>{{gpa}}</td>{{/show_gpa}}
+                        </tr>
+                        {{/schools}}
+                    </table>
+                </div>
+            </div>
+            <div id="desktop-table">
+                <table class="table education">
+                    <!-- <tr>
+                        <th>##degree##</th>
+                        <th>##major##</th>
+                        <th>##institution##</th>
+                        <th nowrap>##graduation_year##</th>{{#show_gpa}}
+                        <th>##gpa##</th>{{/show_gpa}}
+                    </tr> -->
+                    {{#schools}}
+                    <tr>
+                        <td>{{degree}}</td>
+                        <td>{{major}}</td>
+                        <td>{{institution}}</td>
+                        <td align="center">{{graduation_year}}</td>
+                        {{#show_gpa}}
+                        <td>{{gpa}}</td>{{/show_gpa}}
+                    </tr>
+                    {{/schools}}
+                </table>
+            </div>
+            {{/use}} {{/education}}
+
+            <!-- detail: academic achievement -->
+            {{#acad_achievements}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#items}}
+                <li>{{{.}}}</li>{{/items}}
+            </ul>
+            {{/use}} {{/acad_achievements}}
+
+            <!-- detail: work experience -->
+            {{#experience}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user fa-compass"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#items}}
+                <li>
+                    <a>{{title}}, {{{organisation}}}{{#location}}, {{{location}}}{{/location}}</a>
+                    <span class="right">({{from}} - {{to}})</span>
+                    <ul>
+                        {{#details}}
+                        <li>{{{.}}}</li>{{/details}}
+                        <li>
+                            {{#tools}}
+                            <span class="label label-default">{{.}}</span>
+                            {{/tools}}
+                        </li>
+                    </ul>
+                </li>
+                {{/items}}
+            </ul>
+            {{/use}} {{/experience}}
+
+            <!-- detail: extra projects -->
+            {{#other_projects}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-briefcase"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#items}}
+                <li>
+                    <a>{{{headline}}}</a>
+                    <span class="right">{{from}} - {{to}}</span>
+                    <ul>
+                        {{#points}}
+                        <li>{{{.}}}</li>{{/points}}
+
+                        <li>
+                            {{#tools}}
+                            <span class="label label-default">{{.}}</span>
+                            {{/tools}}
+                        </li>
+
+                    </ul>
+                </li>
+                {{/items}}
+            </ul>
+            {{/use}} {{/other_projects}}
+
+            <!-- detail: courses in school -->
+            {{#grad_courses}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+
+            <table class="table education">
+                {{#course}}
+                <td>
+                    <a href="{{url}}">{{name}}</a>
+                </td>
+                {{/course}} {{#rows}}
+                <tr>
+                    {{#columns}}
+                    <td>
+                        <a href="{{url}}">{{name}}</a>
+                    </td>
+                    {{/columns}}
+                </tr>
+                {{/rows}}
+            </table>
+            {{/use}} {{/grad_courses}}
+
+            <!-- detail: patents -->
+            {{#patents}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul class="">
+                {{#items}}
+                <li>{{patent_id}}
+                    <a>{{title}}</a>
+                    {{#issuance_date}}, ##issuance## {{issuance_date}}{{/issuance_date}}.
+                </li>
+                {{/items}}
+            </ul>
+            {{/use}} {{/patents}}
+
+            <!-- detail: paper -->
+            {{#papers}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul class="">
+                {{#items}}
+                <li>{{title}}, {{authors}}, {{{misc}}}.
+                </li>
+                {{/items}}
+            </ul>
+            {{/use}} {{/papers}}
+
+            <!-- detail: undergrad courses -->
+            {{#undergrad_courses}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+
+            <table class="table education">
+                {{#course}}
+                <td>
+                    <a href="{{url}}">{{name}}</a>
+                </td>
+                {{/course}} {{#rows}}
+                <tr>
+                    {{#columns}}
+                    <td>
+                        <a href="{{url}}">{{name}}</a>
+                    </td>
+                    {{/columns}}
+                </tr>
+                {{/rows}}
+            </table>
+            {{/use}} {{/undergrad_courses}}
+
+            <!-- detail: research -->
+            {{#research_experience}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#items}}
+                <li>
+                    <a>{{title}}, {{{organisation}}}}</a>
+                    <span class="right">({{from}} - {{to}})</span>
+                    <ul>
+                        {{#points}}
+                        <li>{{{.}}}</li>{{/points}}
+                    </ul>
+                </li>
+                {{/items}}
+            </ul>
+            {{/use}} {{/research_experience}}
+
+            <!-- detail: memberships and honor -->
+            {{#memberships}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#committees}}
+                <li>{{title}}
+                    <span class="right">({{from}} - {{to}})</span>
+                </li>
+                {{/committees}}
+            </ul>
+            {{/use}} {{/memberships}}
+
+            <!-- detail:  -->
+            {{#extra_curricular}} {{#use}}
+            <h2>
+                <div class="banner-div">
+                    <span class="banner-span">
+                        <i class="white-icon fas fa-user"></i>&nbsp;{{title}}
+                    </span>
+                </div>
+            </h2>
+            <ul>
+                {{#items}}
+                <li>{{{.}}}</li>{{/items}}
+            </ul>
+            {{/use}} {{/extra_curricular}}
+
+            <!-- detail: misc info on bottom -->
+            <div id="bottom-contact" text-size="80%">
+                {{#email}}
+                <div class="fas fa-envelope icon-square"></div> {{email}}
+                <br> {{/email}} {{#phone}}
+                <div class="fas fa-phone icon-square"></div> {{phone}}
+                <br> {{/phone}} {{#website}}
+                <div class="fas fa-globe icon-square"></div>
+                <a> {{website}}</a>
+                {{/website}}
+            </div>
+            {{/bio_data}}
+        </div>
+        <!--//main-wrapper-->
+    </div>
+    <!--//wrapper-->
+</body>
+<!--//main-body-->
+
+</html>
