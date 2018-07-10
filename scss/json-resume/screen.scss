@@ -224,21 +224,24 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   /* @end */
   
   /* @group Lists */
-  
+
   ul {
     /*	margin-top: 1.5em;
         margin-bottom: 1.5em;
     */
     line-height: 1.3em;
     // padding-left: 2.5em;
-    padding-left: 1.5em;
+    padding-left: 0.75em;
     li {
+      //make only each li with a padding
       list-style-type: square;
       list-style-position: outside;
+      padding-bottom: 0.25em;
       ul li {
-        font-size: 80%;
+        font-size: 100%;
         list-style-type: circle;
-        list-style-position: outside;
+        list-style-position: outside; 
+        padding-bottom: unset;
       }
     }
   }
@@ -652,7 +655,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   }
   
   .education {
-    font-size: 90%;
+    font-size: 100%;
   }
   
   .right {
